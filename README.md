@@ -1,4 +1,4 @@
-# Org
+# RDP keep alive
 
 - small app to keep Microsoft Remote Desktop sessions open on Mac by periodically switching to the RDP session and sending a key
 
