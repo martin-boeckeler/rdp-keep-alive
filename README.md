@@ -8,7 +8,9 @@
 
 ## how to use
 
-- open a terminal app (like iTerm, kitty, alacritty) on your Mac and make sure that your termial app is allowed to control your computer (because the terminal app will send a key to the RDP session)
+- on your Mac: open the Microsoft Remote Desktop app and connect to a remote machine
+
+- on your Mac: open a terminal app (like iTerm, kitty, alacritty) and make sure that your termial app is allowed to control your computer (because the terminal app will send a key to the RDP session)
   - go to Settings;Privacy & Security;Accessibility;Allow the applications below to control your computer
   - check the terminal app from which you will invoke the node.js script
 
