@@ -1,16 +1,16 @@
-import notifier from 'node-notifier';
-import runAppleScript from 'run-applescript';
 import { sleep } from './sleep';
+import { sendMacNotification } from './send-notification';
+import { runAppleScript } from './run-apple-script';
 
 let script = '';
 
 export const sendKeyToRdpSession = async () => {
   const waitTimeTillRdpSwitch = 3000;
 
-  notifier.notify({
+  sendMacNotification({
     title: 'RDP Switch',
+    subtitle: 'subtitle',
     message: `switching in ${waitTimeTillRdpSwitch}ms to RDP session`,
-    time: waitTimeTillRdpSwitch,
   });
 
   await sleep(waitTimeTillRdpSwitch);
@@ -23,12 +23,13 @@ export const sendKeyToRdpSession = async () => {
       return previousApp
     end tell`;
 
-  const prevApp = await runAppleScript(script);
+  let prevApp = await runAppleScript({ script });
+  prevApp = prevApp.replace(/\n/g, '');
 
   // switch to RDP
   script = `tell application "Microsoft Remote Desktop" to activate`;
 
-  await runAppleScript(script);
+  await runAppleScript({ script });
 
   // send ESC to RDP session
   script = `
@@ -36,10 +37,10 @@ export const sendKeyToRdpSession = async () => {
       key code 53
     end tell`;
 
-  await runAppleScript(script);
+  await runAppleScript({ script });
 
   // switch back to previous app
   script = `tell application "${prevApp}" to activate`;
 
-  await runAppleScript(script);
+  await runAppleScript({ script });
 };
