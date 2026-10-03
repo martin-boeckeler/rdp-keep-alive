@@ -8,8 +8,7 @@ export const sendKeyToRdpSession = async () => {
   const waitTimeTillRdpSwitch = 3000;
 
   sendMacNotification({
-    title: 'RDP Switch',
-    subtitle: 'subtitle',
+    title: 'rdp switch',
     message: `switching in ${waitTimeTillRdpSwitch}ms to RDP session`,
   });
 
@@ -25,6 +24,10 @@ export const sendKeyToRdpSession = async () => {
 
   let prevApp = await runAppleScript({ script });
   prevApp = prevApp.replace(/\n/g, '');
+
+  if (prevApp === 'sublime_text') {
+    prevApp = 'sublime text';
+  }
 
   // switch to RDP
   script = `tell application "Microsoft Remote Desktop" to activate`;

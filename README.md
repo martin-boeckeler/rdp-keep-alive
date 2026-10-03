@@ -26,6 +26,5 @@
 
 ```sh
 npm install
-npx nx run keep-alive:build
-node dist/apps/keep-alive/main.js
+npx nx run keep-alive:serve
 ```
