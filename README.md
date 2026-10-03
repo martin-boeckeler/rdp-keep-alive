@@ -20,12 +20,11 @@
 
 - optional: adjust the interval how frequent the app should switch to the RDP session to keep it alive
 
-  - check apps/keep-alive/src/utils/constants.ts
+  - check apps/keep-alive/.env
 
 - go back to your terminal, cd into the root of the repo and input the following commands
 
 ```sh
 npm install
-npx nx run keep-alive:build
-node dist/apps/keep-alive/main.js
+npx nx run keep-alive:serve
 ```

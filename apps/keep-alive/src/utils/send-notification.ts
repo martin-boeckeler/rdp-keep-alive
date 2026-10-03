@@ -19,7 +19,7 @@ export const sendMacNotification = (props: SendMacNotificationProps) => {
 
   const safeTitle = title.replace(/"/g, '\\"');
   const safeMessage = message.replace(/"/g, '\\"');
-  const safeSubtitle = subtitle.replace(/"/g, '\\"');
+  const safeSubtitle = subtitle?.replace(/"/g, '\\"');
 
   const subtitleScript = subtitle ? `subtitle "${safeSubtitle}"` : '';
   const soundScript = pingSound ? `sound name "${pingSound}"` : '';

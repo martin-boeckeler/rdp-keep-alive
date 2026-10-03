@@ -1,1 +1,1 @@
-export const intervalTime = 1000 * 60 * 14; // 14 minutes
+export const intervalTimeInMs = parseInt(process.env['INTERVAL_TIME_IN_MS']);
